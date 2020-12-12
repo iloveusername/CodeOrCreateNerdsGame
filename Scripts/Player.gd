@@ -11,8 +11,8 @@ var motion = Vector2.ZERO
 var maxSpeed = 200
 var xDir = 1
 var yDir = 1
-var spriteDir = 1
 var jumpReady = 1.1
+var facingDir = 1
 
 onready var rayCast = $RayCast2D
 
@@ -43,6 +43,16 @@ func _physics_process(delta):
 #Gravity
 	motion.y += GRAVITY
 	
+	
+#Sprite Flip
+	if xDir == 1:
+		facingDir = 1
+	elif xDir == -1:
+		facingDir = -1
+		
+		
+		
+		
 	motion = move_and_slide(motion, Vector2.UP)
 	print(jumpReady)
 

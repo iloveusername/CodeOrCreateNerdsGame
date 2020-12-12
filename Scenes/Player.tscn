@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Sprites/icon.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 14.3189, 14.2321 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 18.6623, 17.8955 )
 
 [node name="Player" type="Node2D"]
 
@@ -13,7 +16,7 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
 position = Vector2( 0, -14.3315 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="KinematicBody2D"]
 position = Vector2( 0, -16 )
@@ -27,7 +30,15 @@ current = true
 zoom = Vector2( 0.5, 0.5 )
 
 [node name="RayCast2D" type="RayCast2D" parent="KinematicBody2D"]
+visible = false
 position = Vector2( 0, -15.553 )
 scale = Vector2( 1, 0.369 )
 enabled = true
 collide_with_areas = true
+
+[node name="Area2D" type="Area2D" parent="KinematicBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/Area2D"]
+visible = false
+position = Vector2( 0, -16.0181 )
+shape = SubResource( 2 )
