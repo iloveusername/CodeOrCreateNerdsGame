@@ -62,7 +62,6 @@ func _physics_process(delta):
 		waterAnim.play("0 Charge")
 	if charge == 20:
 		waterAnim.play("20")
-		print("yeet")
 	if charge == 40:
 		waterAnim.play("40")
 	if charge == 60 :
@@ -73,11 +72,11 @@ func _physics_process(delta):
 		
 #Shooting
 	if Input.is_action_pressed("LMB"):
-		charge += 1
+		charge += 2
 	else:
-		charge -= 1
+		charge -= 2
 
-	if charge == 100 && shootRefresh == 100:
+	if charge >= 98 && shootRefresh == 100:
 		shootRefresh = 0
 		charge = 0
 		shoot()
@@ -92,7 +91,7 @@ func _physics_process(delta):
 	charge = clamp(charge, 0, 100)
 		
 	motion = move_and_slide(motion, Vector2.UP)
-	print(charge)
+	print()
 	
 
 
