@@ -1,16 +1,23 @@
 extends Node2D
 
+const ACCELERATION = 512
+const MAX_SPEED = 100
+const FRICTION = 0.1
+const AIR_RESISTENCE = 0.02
+const GRAVITY = 33
+const JUMP_FORCE = 66
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var motion = Vector2.ZERO
+var maxSpeed = 100
+var xDir = 1
+var yDir = 1
+var spriteDir = 1
 
+func _physics_process(delta):
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+#Direction
+	var xDir = (Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"))
+	var yDir = (Input.get_action_strength("ui_up") - Input.get_action_strength("ui_down"))
+	
+	motion.y -= GRAVITY
+	
