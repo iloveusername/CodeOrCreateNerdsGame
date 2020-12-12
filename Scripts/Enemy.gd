@@ -19,6 +19,6 @@ func _physics_process(delta):
 func _on_Area2D_body_entered(body):
 	if "Bullet" in body.name:
 		var facingDir = get_parent().get_node("Player").facingDir
-		motion.x = launchVal*-facingDir
-		motion.y = launchVal
+		motion.x = launchVal*-facingDir*3
+		motion.y = launchVal*1.25
 		print (facingDir)
