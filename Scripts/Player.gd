@@ -6,6 +6,7 @@ const FRICTION = 0.1
 const AIR_RESISTENCE = 0.02
 const GRAVITY = 11
 const JUMP_FORCE = 300
+const XKICKBACK = 500
 
 var motion = Vector2.ZERO
 var maxSpeed = 200
@@ -16,6 +17,7 @@ var facingDir = 1
 var bulletSpeed = 500
 var bullet = preload("res://Scenes/Bullet.tscn")
 var shootRefresh = 100
+var charge = 0
 
 func _physics_process(delta):
 
@@ -53,17 +55,25 @@ func _physics_process(delta):
 		facingDir = -1
 		
 #Shooting
-	if Input.is_action_pressed("LMB") && shootRefresh == 100:
+	if Input.is_action_pressed("LMB"):
+		charge += 1
+	else:
+		charge -= 1
+
+	if charge == 100 && shootRefresh == 100:
 		shootRefresh = 0
+		charge = 0
 		shoot()
+		motion.x += XKICKBACK*-facingDir
 		
 	if shootRefresh != 100:
 		shootRefresh += 1
 		
-	shootRefresh = clamp(shootRefresh, 0, 100)
+	shootRefresh = clamp(shootRefresh, 0, 100)	
+	charge = clamp(charge, 0, 100)
 		
 	motion = move_and_slide(motion, Vector2.UP)
-	print(shootRefresh)
+	print(charge)
 
 #Bullet Stuff
 func shoot():
