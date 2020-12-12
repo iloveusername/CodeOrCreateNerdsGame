@@ -6,10 +6,10 @@ var firebullet = preload("res://Scenes/FireBullet.tscn")
 
 func _physics_process(delta):
 	
-	if shootTime > 98:
+	if shootTime > 150:
 		shootTime = 0
 		shoot()
-	shootTime = shootTime + 1
+	shootTime = shootTime + randi() % 2
 
 
 func shoot():
