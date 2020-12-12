@@ -28,7 +28,7 @@ current = true
 zoom = Vector2( 0.5, 0.5 )
 
 [node name="RayCast2D" type="RayCast2D" parent="KinematicBody2D"]
-position = Vector2( 0, -15.4338 )
-scale = Vector2( 1, 0.31 )
+position = Vector2( 0, -15.553 )
+scale = Vector2( 1, 0.369 )
 enabled = true
 collide_with_areas = true

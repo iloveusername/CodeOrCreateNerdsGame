@@ -38,5 +38,5 @@ func _physics_process(delta):
 	motion.y += GRAVITY
 	
 	motion = move_and_slide(motion, Vector2.UP)
-	print(motion)
+	print(rayCast.is_colliding())
 
