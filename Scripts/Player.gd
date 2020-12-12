@@ -18,12 +18,18 @@ func _physics_process(delta):
 #Direction
 	var xDir = (Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"))
 	var yDir = (Input.get_action_strength("ui_up") - Input.get_action_strength("ui_down"))
+	
+	
 #X Motion
 	if xDir != 0:
 		motion.x += xDir * ACCELERATION * delta
 		maxSpeed = 64
 	else:
 		motion.x = lerp(motion.x, 0, FRICTION)
+	
+#Y Motion
+	if Input.is_action_pressed("ui_select"):
+				motion.y = -JUMP_FORCE 
 	
 	motion.y += GRAVITY
 	
