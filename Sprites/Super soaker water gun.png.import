@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Super soaker water gun.png-d9ba63f7bbd2d24a3efe6e01219c434f.stex"
+path="res://.import/Super soaker water gun.png-b6c5d394f2c6c25f1a43876d16add19a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Super soaker water gun.png"
-dest_files=[ "res://.import/Super soaker water gun.png-d9ba63f7bbd2d24a3efe6e01219c434f.stex" ]
+source_file="res://Sprites/Super soaker water gun.png"
+dest_files=[ "res://.import/Super soaker water gun.png-b6c5d394f2c6c25f1a43876d16add19a.stex" ]
 
 [params]
 
