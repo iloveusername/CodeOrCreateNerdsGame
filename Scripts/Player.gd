@@ -17,8 +17,6 @@ var bulletSpeed = 500
 var bullet = preload("res://Scenes/Bullet.tscn")
 var shootRefresh = 100
 
-onready var rayCast = $RayCast2D
-
 func _physics_process(delta):
 
 #Direction
@@ -36,7 +34,7 @@ func _physics_process(delta):
 	motion.x = clamp(motion.x, -maxSpeed, maxSpeed)
 	
 #Y Motion
-	if rayCast.is_colliding() || is_on_wall():
+	if is_on_floor() || is_on_wall():
 		if Input.is_action_pressed("ui_select") && jumpReady > 1:
 			jumpReady = 0
 			motion.y = -JUMP_FORCE 
@@ -55,7 +53,7 @@ func _physics_process(delta):
 		facingDir = -1
 		
 #Shooting
-	if Input.is_action_pressed("ui_up") && shootRefresh == 100:
+	if Input.is_action_pressed("LMB") && shootRefresh == 100:
 		shootRefresh = 0
 		shoot()
 		
@@ -70,7 +68,7 @@ func _physics_process(delta):
 #Bullet Stuff
 func shoot():
 	var bulletInstance = bullet.instance()
-	bulletInstance.position = get_global_position() + Vector2(15*facingDir,-10)
+	bulletInstance.position = get_global_position() + Vector2(15*facingDir,-15)
 	bulletInstance.apply_impulse(Vector2(0,0),Vector2(bulletSpeed * facingDir, 0).rotated(rotation))
 	get_tree().get_root().call_deferred("add_child",bulletInstance)
 	

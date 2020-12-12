@@ -30,16 +30,8 @@ offset = Vector2( 0, -50 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
 
-[node name="RayCast2D" type="RayCast2D" parent="KinematicBody2D"]
-visible = false
-position = Vector2( 0, -15.553 )
-scale = Vector2( 1, 0.369 )
-enabled = true
-collide_with_areas = true
-
 [node name="Area2D" type="Area2D" parent="KinematicBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/Area2D"]
-visible = false
 position = Vector2( 0, -16.0181 )
 shape = SubResource( 2 )
