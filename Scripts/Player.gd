@@ -7,6 +7,7 @@ const AIR_RESISTENCE = 0.02
 const GRAVITY = 11
 const JUMP_FORCE = 300
 const XKICKBACK = 500
+const ENEMYKICKBACK = 500
 
 var motion = Vector2.ZERO
 var maxSpeed = 200
@@ -19,6 +20,7 @@ var bullet = preload("res://Scenes/Bullet.tscn")
 var shootRefresh = 100
 var charge = 0
 var healthCount = 100
+var healthTake
 onready var waterAnim = $WaterDropAnim
 
 func _physics_process(delta):
@@ -94,10 +96,13 @@ func _physics_process(delta):
 	if healthCount < 0:
 		queue_free()
 		
+		
+		
 	shootRefresh = clamp(shootRefresh, 0, 100)	
 	charge = clamp(charge, 0, 100)
 		
 	motion = move_and_slide(motion, Vector2.UP)
+	print(healthCount)
 	
 #Bullet Stuff
 func shoot():
@@ -107,7 +112,11 @@ func shoot():
 	get_tree().get_root().call_deferred("add_child",bulletInstance)
 	
 	
-
-
 func _on_Area2D_body_entered(body):
-	pass # Replace with function body.
+	if "EnemyFire" in body.name:
+		healthCount = healthCount-10
+		hit_knockback()
+
+func hit_knockback():
+	motion.x = ENEMYKICKBACK
+	motion.y = -ENEMYKICKBACK/3
