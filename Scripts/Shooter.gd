@@ -10,7 +10,6 @@ func _physics_process(delta):
 		shootTime = 0
 		shoot()
 	shootTime = shootTime + 1
-	print(shootTime)
 
 
 func shoot():

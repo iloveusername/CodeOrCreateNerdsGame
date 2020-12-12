@@ -117,6 +117,9 @@ func _on_Area2D_body_entered(body):
 	if "EnemyFire" in body.name:
 		healthCount = healthCount-10
 		hit_knockback()
+	if "FireThing" in body.name:
+		healthCount = healthCount-10
+		hit_knockback()
 
 func hit_knockback():
 	motion.x = -ENEMYKICKBACK * facingDir
