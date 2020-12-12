@@ -18,6 +18,7 @@ var bulletSpeed = 500
 var bullet = preload("res://Scenes/Bullet.tscn")
 var shootRefresh = 100
 var charge = 0
+var healthCount = 100
 onready var waterAnim = $WaterDropAnim
 
 func _physics_process(delta):
@@ -70,6 +71,11 @@ func _physics_process(delta):
 		waterAnim.play("80")
 		
 		
+#Random Number Test
+	if Input.is_action_just_pressed("ui_up"):
+		var ranDom = randi() % 20
+		print(ranDom)
+		
 #Shooting
 	if Input.is_action_pressed("LMB"):
 		charge += 2
@@ -93,8 +99,6 @@ func _physics_process(delta):
 	motion = move_and_slide(motion, Vector2.UP)
 	
 	
-
-
 #Bullet Stuff
 func shoot():
 	var bulletInstance = bullet.instance()
