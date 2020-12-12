@@ -15,7 +15,7 @@ var die = 0
 func _physics_process(delta):
 	if death == 1:
 		die = die + 1
-	if die > 20:
+	if die > 2:
 		queue_free()
 	motion.y += GRAVITY * delta
 	if x < 50 :

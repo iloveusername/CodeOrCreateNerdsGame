@@ -24,6 +24,7 @@ var healthTake
 var POS = get_global_transform()
 var animalScore = 0
 onready var waterAnim = $WaterDropAnim
+onready var playerAnim = $AnimationPlayer
 
 func _physics_process(delta):
 
@@ -31,6 +32,12 @@ func _physics_process(delta):
 	var xDir = (Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"))
 	var yDir = (Input.get_action_strength("ui_up") - Input.get_action_strength("ui_down"))
 	
+#Player Animations
+	if xDir != 0:
+		if xDir > 0:
+			playerAnim.play("Walk Right")
+		if xDir < 0:
+			playerAnim.play("Walk Left")
 	
 #X Motion
 	if xDir != 0:
