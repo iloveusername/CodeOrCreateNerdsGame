@@ -10,6 +10,7 @@ func _physics_process(delta):
 	var Player = get_parent().get_node("Player")
 	
 #Gravity
+	motion.x = lerp(motion.x, 0, FRICTION)
 	motion.y += GRAVITY
 	
 	move_and_slide(motion)
