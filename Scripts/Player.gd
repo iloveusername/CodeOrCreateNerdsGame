@@ -102,7 +102,7 @@ func _physics_process(delta):
 	charge = clamp(charge, 0, 100)
 		
 	motion = move_and_slide(motion, Vector2.UP)
-	print(healthCount)
+
 	
 #Bullet Stuff
 func shoot():
