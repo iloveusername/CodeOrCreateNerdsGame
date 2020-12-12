@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 const GRAVITY = 11
+const FRICTION = 0.1
 
 var motion = Vector2()
 var launchVal = -100
