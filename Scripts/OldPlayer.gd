@@ -61,7 +61,6 @@ func _physics_process(delta):
 			
 		#Walking And Standing / Friction
 			if xDir != 0:
-				animationPlayer.play("Run")
 				motion.x += xDir * ACCELERATION * delta
 				maxSpeed = 64
 			else:
