@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Player1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Textures/Grass.png" type="Texture" id=2]
 [ext_resource path="res://Textures/MiddleGround.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/EnemyFire.tscn" type="PackedScene" id=4]
@@ -48,7 +48,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 [node name="Test Scene" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 256, 96 )
+position = Vector2( 232, 112 )
 
 [node name="TileMap" type="TileMap" parent="."]
 show_behind_parent = true
