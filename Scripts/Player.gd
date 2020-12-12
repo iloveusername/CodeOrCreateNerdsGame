@@ -118,5 +118,5 @@ func _on_Area2D_body_entered(body):
 		hit_knockback()
 
 func hit_knockback():
-	motion.x = ENEMYKICKBACK
+	motion.x = -ENEMYKICKBACK * facingDir
 	motion.y = -ENEMYKICKBACK/3
