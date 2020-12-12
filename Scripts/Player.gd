@@ -18,6 +18,7 @@ var bulletSpeed = 500
 var bullet = preload("res://Scenes/Bullet.tscn")
 var shootRefresh = 100
 var charge = 0
+onready var waterAnim = $WaterDropAnim
 
 func _physics_process(delta):
 
@@ -51,8 +52,24 @@ func _physics_process(delta):
 #Sprite Flip
 	if xDir == 1: 
 		facingDir = 1
+		
 	elif xDir == -1:
 		facingDir = -1
+		
+		
+#WaterDropSprite
+	if charge == 0:
+		waterAnim.play("0 Charge")
+	if charge == 20:
+		waterAnim.play("20")
+		print("yeet")
+	if charge == 40:
+		waterAnim.play("40")
+	if charge == 60 :
+		waterAnim.play("60")
+	if charge == 80:
+		waterAnim.play("80")
+		
 		
 #Shooting
 	if Input.is_action_pressed("LMB"):
@@ -69,11 +86,15 @@ func _physics_process(delta):
 	if shootRefresh != 100:
 		shootRefresh += 1
 		
+		
+		
 	shootRefresh = clamp(shootRefresh, 0, 100)	
 	charge = clamp(charge, 0, 100)
 		
 	motion = move_and_slide(motion, Vector2.UP)
 	print(charge)
+	
+
 
 #Bullet Stuff
 func shoot():

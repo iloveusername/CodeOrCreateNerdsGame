@@ -42,16 +42,16 @@ zoom = Vector2( 0.5, 0.5 )
 position = Vector2( 0, -16.0181 )
 shape = SubResource( 2 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="KinematicBody2D"]
+[node name="Water Meter" type="Sprite" parent="KinematicBody2D"]
+show_behind_parent = true
+position = Vector2( 0, -45 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+vframes = 5
+
+[node name="WaterDropAnim" type="AnimationPlayer" parent="KinematicBody2D"]
 "anims/0 Charge" = ExtResource( 4 )
 anims/20 = ExtResource( 8 )
 anims/40 = ExtResource( 6 )
 anims/60 = ExtResource( 5 )
 anims/80 = ExtResource( 7 )
-
-[node name="Water Meter" type="Sprite" parent="KinematicBody2D/AnimationPlayer"]
-position = Vector2( 0, -29.8451 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 3 )
-vframes = 5
-frame = 4
