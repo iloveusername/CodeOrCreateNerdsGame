@@ -6,7 +6,10 @@ const FRICTION = 0.1
 var motion = Vector2()
 var launchVal = -100
 
+onready var fireAnim = $AnimationPlayer
+
 func _physics_process(delta):
+	fireAnim.play("Fire Animation")
 	var Player = get_parent().get_node("Player")
 	
 #Gravity
