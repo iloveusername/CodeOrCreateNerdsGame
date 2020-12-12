@@ -4,7 +4,7 @@
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 16, 16 )
+extents = Vector2( 14.3189, 14.2321 )
 
 [node name="Player" type="Node2D"]
 
@@ -12,7 +12,6 @@ extents = Vector2( 16, 16 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
-visible = false
 position = Vector2( 0, -16 )
 shape = SubResource( 2 )
 

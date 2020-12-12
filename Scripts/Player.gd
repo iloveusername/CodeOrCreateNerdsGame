@@ -12,6 +12,7 @@ var maxSpeed = 200
 var xDir = 1
 var yDir = 1
 var spriteDir = 1
+var jumpReady = 1.1
 
 onready var rayCast = $RayCast2D
 
@@ -32,11 +33,16 @@ func _physics_process(delta):
 	motion.x = clamp(motion.x, -maxSpeed, maxSpeed)
 	
 #Y Motion
-	if Input.is_action_pressed("ui_select") && rayCast.is_colliding():
-		motion.y = -JUMP_FORCE 
+	if rayCast.is_colliding() || is_on_wall():
+		if Input.is_action_pressed("ui_select") && jumpReady > 1:
+			jumpReady = 0
+			motion.y = -JUMP_FORCE 
+#Jump Refresh
+	if jumpReady != 1:
+		jumpReady += 0.05
 	
 	motion.y += GRAVITY
 	
 	motion = move_and_slide(motion, Vector2.UP)
-	print(rayCast.is_colliding())
+	print(jumpReady)
 
