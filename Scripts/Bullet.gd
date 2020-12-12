@@ -11,7 +11,6 @@ func _physics_process(delta):
 	death += 1
 	if death > 100:
 		queue_free()
-	print(death)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
