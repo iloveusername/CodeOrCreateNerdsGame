@@ -1,14 +1,15 @@
 extends KinematicBody2D
 
-const GRAVITY = 11
-const FRICTION = 0.1
+const ACCELERATION = 512
+const MAX_SPEED = 64
+const FRICTION = 0.25
+const GRAVITY = 200
+const JUMP_FORCE = 128
 
 var motion = Vector2()
 var launchVal = -100
 var health = 12
-var bulletSpeed = 500
-var firebullet = preload("res://Scenes/FireBullet.tscn")
-
+var x = 0
 onready var fireAnim = $AnimationPlayer
 
 func _physics_process(delta):
@@ -16,12 +17,19 @@ func _physics_process(delta):
 	var Player = get_parent().get_node("Player")
 	
 #Gravity
+	motion.y += GRAVITY * delta
+	if x < 50 :
+		x=x+1
+		
+	elif x>=50 && is_on_floor():
+		var random1 = rand_range (-50, 50)
+		var random2 = rand_range (-30, 0)
+		motion.x = random1 * 5
+		motion.y = random2 * 3
+		x=0
+		
 	motion.x = lerp(motion.x, 0, FRICTION)
-	motion.y += GRAVITY
-	
-	shoot()
-	
-	move_and_slide(motion)
+	motion = move_and_slide(motion, Vector2.UP)
 	
 #Death
 	if health < 0:
@@ -35,8 +43,3 @@ func _on_Area2D_body_entered(body):
 		motion.y = launchVal*1.25
 		health = health - 4
 
-func shoot():
-	var bulletInstance = firebullet.instance()
-	bulletInstance.position = get_global_position() + Vector2(15,-15)
-	bulletInstance.apply_impulse(Vector2(0,0),Vector2(bulletSpeed, 0).rotated(rotation))
-	get_tree().get_root().call_deferred("add_child",bulletInstance)

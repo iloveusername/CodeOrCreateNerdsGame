@@ -21,6 +21,7 @@ var shootRefresh = 100
 var charge = 0
 var healthCount = 100
 var healthTake
+var POS = get_global_transform()
 onready var waterAnim = $WaterDropAnim
 
 func _physics_process(delta):
@@ -114,6 +115,9 @@ func shoot():
 	
 func _on_Area2D_body_entered(body):
 	if "EnemyFire" in body.name:
+		healthCount = healthCount-10
+		hit_knockback()
+	if "FireThing" in body.name:
 		healthCount = healthCount-10
 		hit_knockback()
 
