@@ -21,4 +21,3 @@ func _on_Area2D_body_entered(body):
 		var facingDir = get_parent().get_node("Player").facingDir
 		motion.x = launchVal*-facingDir*3
 		motion.y = launchVal*1.25
-		print (facingDir)
