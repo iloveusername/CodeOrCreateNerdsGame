@@ -13,6 +13,8 @@ var xDir = 1
 var yDir = 1
 var jumpReady = 1.1
 var facingDir = 1
+var bulletSpeed = 2000
+var bullet = preload("res://Scenes/Bullet.tscn")
 
 onready var rayCast = $RayCast2D
 
@@ -45,14 +47,23 @@ func _physics_process(delta):
 	
 	
 #Sprite Flip
-	if xDir == 1:
+	if xDir == 1: 
 		facingDir = 1
 	elif xDir == -1:
 		facingDir = -1
 		
-		
+	if Input.is_action_pressed("ui_up"):
+		shoot()
 		
 		
 	motion = move_and_slide(motion, Vector2.UP)
 	print(jumpReady)
 
+#Bullet Stuff
+func shoot():
+	var bulletInstance = bullet.instance()
+	bulletInstance.position = get_global_position()
+	bulletInstance.apply_impulse(Vector2(),Vector2(bulletSpeed,0).rotated(rotation))
+	get_tree().get_root().call_deferred("add_child",bulletInstance)
+	
+	
