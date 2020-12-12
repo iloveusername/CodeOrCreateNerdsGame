@@ -21,6 +21,7 @@ var shootRefresh = 100
 var charge = 0
 var healthCount = 100
 var healthTake
+var POS = get_global_transform()
 onready var waterAnim = $WaterDropAnim
 
 func _physics_process(delta):
