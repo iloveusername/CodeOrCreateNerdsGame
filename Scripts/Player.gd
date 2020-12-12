@@ -5,13 +5,15 @@ const MAX_SPEED = 100
 const FRICTION = 0.1
 const AIR_RESISTENCE = 0.02
 const GRAVITY = 11
-const JUMP_FORCE = 66
+const JUMP_FORCE = 300
 
 var motion = Vector2.ZERO
-var maxSpeed = 64
+var maxSpeed = 200
 var xDir = 1
 var yDir = 1
 var spriteDir = 1
+
+onready var rayCast = $RayCast2D
 
 func _physics_process(delta):
 
@@ -23,13 +25,15 @@ func _physics_process(delta):
 #X Motion
 	if xDir != 0:
 		motion.x += xDir * ACCELERATION * delta
-		maxSpeed = 64
 	else:
 		motion.x = lerp(motion.x, 0, FRICTION)
 	
+#Clamp X Speed
+	motion.x = clamp(motion.x, -maxSpeed, maxSpeed)
+	
 #Y Motion
-	if Input.is_action_pressed("ui_select"):
-				motion.y = -JUMP_FORCE 
+	if Input.is_action_pressed("ui_select") && rayCast.is_colliding():
+		motion.y = -JUMP_FORCE 
 	
 	motion.y += GRAVITY
 	
