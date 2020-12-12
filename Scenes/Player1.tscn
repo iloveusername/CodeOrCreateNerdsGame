@@ -1,0 +1,55 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Animations/0 Charge.tres" type="Animation" id=1]
+[ext_resource path="res://Animations/60.tres" type="Animation" id=2]
+[ext_resource path="res://Animations/40.tres" type="Animation" id=3]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/Water Meter.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/icon.png" type="Texture" id=6]
+[ext_resource path="res://Animations/20.tres" type="Animation" id=7]
+[ext_resource path="res://Animations/80.tres" type="Animation" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 14.3189, 14.2321 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 18.6623, 17.8955 )
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 0, 14.6998 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -14.3315 )
+shape = SubResource( 1 )
+
+[node name="CharSprite" type="Sprite" parent="."]
+position = Vector2( 0, -16 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0.707123, -9.89951 )
+offset = Vector2( 0, -50 )
+current = true
+zoom = Vector2( 0.5, 0.5 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, -16.0181 )
+shape = SubResource( 2 )
+
+[node name="Water Meter" type="Sprite" parent="."]
+show_behind_parent = true
+position = Vector2( 0, -45 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+vframes = 5
+
+[node name="WaterDropAnim" type="AnimationPlayer" parent="."]
+"anims/0 Charge" = ExtResource( 1 )
+anims/20 = ExtResource( 7 )
+anims/40 = ExtResource( 3 )
+anims/60 = ExtResource( 2 )
+anims/80 = ExtResource( 8 )
