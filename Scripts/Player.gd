@@ -91,13 +91,13 @@ func _physics_process(delta):
 		shootRefresh += 1
 		
 #Health
-	
+	if healthCount < 0:
+		queue_free()
 		
 	shootRefresh = clamp(shootRefresh, 0, 100)	
 	charge = clamp(charge, 0, 100)
 		
 	motion = move_and_slide(motion, Vector2.UP)
-	
 	
 #Bullet Stuff
 func shoot():
@@ -107,3 +107,7 @@ func shoot():
 	get_tree().get_root().call_deferred("add_child",bulletInstance)
 	
 	
+
+
+func _on_Area2D_body_entered(body):
+	pass # Replace with function body.

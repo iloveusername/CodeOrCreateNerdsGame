@@ -53,3 +53,4 @@ anims/20 = ExtResource( 7 )
 anims/40 = ExtResource( 3 )
 anims/60 = ExtResource( 2 )
 anims/80 = ExtResource( 8 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
