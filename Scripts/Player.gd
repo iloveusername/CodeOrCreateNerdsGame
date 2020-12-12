@@ -70,7 +70,6 @@ func _physics_process(delta):
 	if charge == 80:
 		waterAnim.play("80")
 		
-		
 #Random Number Test
 	if Input.is_action_just_pressed("ui_up"):
 		var ranDom = randi() % 20
@@ -91,7 +90,8 @@ func _physics_process(delta):
 	if shootRefresh != 100:
 		shootRefresh += 1
 		
-		
+#Health
+	
 		
 	shootRefresh = clamp(shootRefresh, 0, 100)	
 	charge = clamp(charge, 0, 100)
