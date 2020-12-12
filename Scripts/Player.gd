@@ -40,7 +40,7 @@ func _physics_process(delta):
 #Jump Refresh
 	if jumpReady != 1:
 		jumpReady += 0.05
-	
+#Gravity
 	motion.y += GRAVITY
 	
 	motion = move_and_slide(motion, Vector2.UP)

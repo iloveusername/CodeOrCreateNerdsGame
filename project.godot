@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="NERDS_Code_Or_Create_2020"
 run/main_scene="res://Scenes/Test Scene.tscn"
-boot_splash/bg_color=Color( 0.0431373, 0.992157, 0.94902, 1 )
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://Sprites/icon.png"
 
 [input]
@@ -53,4 +53,5 @@ ui_down={
 
 [rendering]
 
+environment/default_clear_color=Color( 0, 1, 0.976471, 1 )
 environment/default_environment="res://default_env.tres"

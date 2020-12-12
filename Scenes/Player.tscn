@@ -12,7 +12,7 @@ extents = Vector2( 14.3189, 14.2321 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
-position = Vector2( 0, -16 )
+position = Vector2( 0, -14.3315 )
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="KinematicBody2D"]
