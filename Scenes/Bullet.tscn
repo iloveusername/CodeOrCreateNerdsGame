@@ -6,6 +6,7 @@
 extents = Vector2( 15.873, 30.7692 )
 
 [node name="Bullet" type="RigidBody2D"]
+gravity_scale = 0.0
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 4.76837e-07, -4.76837e-07 )
