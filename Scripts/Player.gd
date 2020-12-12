@@ -22,6 +22,7 @@ var charge = 0
 var healthCount = 100
 var healthTake
 var POS = get_global_transform()
+var animalScore = 0
 onready var waterAnim = $WaterDropAnim
 
 func _physics_process(delta):
@@ -112,7 +113,6 @@ func shoot():
 	bulletInstance.apply_impulse(Vector2(0,0),Vector2(bulletSpeed * facingDir, 0).rotated(rotation))
 	get_tree().get_root().call_deferred("add_child",bulletInstance)
 	
-	
 func _on_Area2D_body_entered(body):
 	if "EnemyFire" in body.name:
 		healthCount = healthCount-10
@@ -120,6 +120,9 @@ func _on_Area2D_body_entered(body):
 	if "FireThing" in body.name:
 		healthCount = healthCount-10
 		hit_knockback()
+	if "Rabbit" in body.name:
+		animalScore = animalScore + 1
+		print(animalScore)
 
 func hit_knockback():
 	motion.x = -ENEMYKICKBACK * facingDir
