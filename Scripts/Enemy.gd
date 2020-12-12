@@ -5,6 +5,7 @@ const FRICTION = 0.1
 
 var motion = Vector2()
 var launchVal = -100
+var health = 12
 
 onready var fireAnim = $AnimationPlayer
 
@@ -17,6 +18,10 @@ func _physics_process(delta):
 	motion.y += GRAVITY
 	
 	move_and_slide(motion)
+	
+#Death
+	if health < 0:
+		queue_free()
 
 
 func _on_Area2D_body_entered(body):
@@ -24,3 +29,4 @@ func _on_Area2D_body_entered(body):
 		var facingDir = get_parent().get_node("Player").facingDir
 		motion.x = launchVal*-facingDir*3
 		motion.y = launchVal*1.25
+		health = health - 4
