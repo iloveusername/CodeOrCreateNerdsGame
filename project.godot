@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="NERDS_Code_Or_Create_2020"
-run/main_scene="res://Scenes/Test Scene.tscn"
+run/main_scene="res://Scenes/LevelOne.tscn"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://Sprites/icon.png"
 
@@ -75,5 +75,6 @@ LMB={
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 environment/default_clear_color=Color( 0, 1, 0.976471, 1 )
 environment/default_environment="res://default_env.tres"

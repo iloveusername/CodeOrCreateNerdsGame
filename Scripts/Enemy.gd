@@ -78,3 +78,6 @@ func _on_Area2D_body_entered(body):
 		flashGo = 1
 		health = health - Player.randomDamage
 
+func _ready():
+	var scoreTracker = get_parent().get_node("ScoreTracker")
+	scoreTracker.killNeed = scoreTracker.killNeed + 1

@@ -37,3 +37,7 @@ func _physics_process(delta):
 func _on_Area2D_body_entered(body):
 	if "Player" in body.name:
 		death = 1
+
+func _ready():
+	var scoreTracker = get_parent().get_node("ScoreTracker")
+	scoreTracker.animalNeed = scoreTracker.animalNeed + 1

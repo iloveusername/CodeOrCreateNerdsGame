@@ -158,3 +158,5 @@ func hit_knockback():
 	motion.x = -ENEMYKICKBACK * facingDir
 	motion.y = -ENEMYKICKBACK/3
 	flashGo = 1
+
+

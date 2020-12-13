@@ -10,6 +10,7 @@ extents = Vector2( 4, 4 )
 extents = Vector2( 9.31909, 10.2186 )
 
 [node name="Rabbit" type="KinematicBody2D"]
+scale = Vector2( 2, 2 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
