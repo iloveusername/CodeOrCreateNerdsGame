@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="NERDS_Code_Or_Create_2020"
-run/main_scene="res://Scenes/LevelOne.tscn"
+run/main_scene="res://Scenes/LevelZero.tscn"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://Sprites/icon.png"
 
