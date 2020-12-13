@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Textures/MiddleGround.png" type="Texture" id=1]
 [ext_resource path="res://Textures/Grass.png" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Textures/Grass_Left.png" type="Texture" id=5]
 [ext_resource path="res://Textures/Grass_Right.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/ScoreTracker.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sprites/White Square.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/Start.gd" type="Script" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -120,6 +122,9 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 } ]
 4/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 24, 15.8337 )
+
 [node name="LevelTemplate" type="Node2D"]
 
 [node name="TileMap2" type="TileMap" parent="."]
@@ -134,3 +139,16 @@ tile_data = PoolIntArray( -458766, 1, 0, -458765, 1, 0, -458764, 1, 0, -458763, 
 position = Vector2( 352, 152 )
 
 [node name="ScoreTracker" parent="." instance=ExtResource( 7 )]
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 552, 160 )
+scale = Vector2( 1, 2.021 )
+texture = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="Area2D" type="Area2D" parent="Sprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D"]
+shape = SubResource( 6 )
+[connection signal="body_entered" from="Sprite/Area2D" to="Sprite" method="_on_Area2D_body_entered"]
