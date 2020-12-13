@@ -38,6 +38,10 @@ func _physics_process(delta):
 			playerAnim.play("Walk Right")
 		if xDir < 0:
 			playerAnim.play("Walk Left")
+	elif facingDir == 1:
+		playerAnim.play("Stand Right")
+	elif facingDir == -1:
+		playerAnim.play("Stand Left")
 	
 #X Motion
 	if xDir != 0:
