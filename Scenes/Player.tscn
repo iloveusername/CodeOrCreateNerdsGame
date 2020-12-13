@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Animations/0 Charge.tres" type="Animation" id=1]
 [ext_resource path="res://Animations/60.tres" type="Animation" id=2]
@@ -17,6 +17,36 @@ extents = Vector2( 6.82738, 9.61846 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 7.57062, 19.5266 )
 
+[sub_resource type="Animation" id=4]
+resource_name = "Stand Left"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CharSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Stand Right"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CharSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 0, 14.6998 )
 script = ExtResource( 4 )
@@ -31,7 +61,7 @@ scale = Vector2( 1, 1.3 )
 texture = ExtResource( 6 )
 vframes = 3
 hframes = 3
-frame = 3
+frame = 4
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0.707123, -9.89951 )
@@ -61,6 +91,8 @@ anims/60 = ExtResource( 2 )
 anims/80 = ExtResource( 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Stand Left" = SubResource( 4 )
+"anims/Stand Right" = SubResource( 3 )
 "anims/Walk Left" = ExtResource( 9 )
 "anims/Walk Right" = ExtResource( 10 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
