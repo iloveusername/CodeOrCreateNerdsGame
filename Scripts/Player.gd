@@ -23,8 +23,11 @@ var healthCount = 100
 var healthTake
 var POS = get_global_transform()
 var animalScore = 0
+var flash = 0
+var flashGo = 0
 onready var waterAnim = $WaterDropAnim
 onready var playerAnim = $AnimationPlayer
+onready var charColor = $CharSprite
 
 func _physics_process(delta):
 
@@ -42,6 +45,15 @@ func _physics_process(delta):
 		playerAnim.play("Stand Right")
 	elif facingDir == -1:
 		playerAnim.play("Stand Left")
+		
+#HitFlash
+	if flashGo == 1:
+		charColor.self_modulate = Color(100, 100, 100)
+		flash = flash + 1
+	if flash > 12:
+		charColor.self_modulate = Color(1, 1, 1)
+		flashGo = 0
+		flash = 0	
 	
 #X Motion
 	if xDir != 0:
@@ -138,3 +150,4 @@ func _on_Area2D_body_entered(body):
 func hit_knockback():
 	motion.x = -ENEMYKICKBACK * facingDir
 	motion.y = -ENEMYKICKBACK/3
+	flashGo = 1
