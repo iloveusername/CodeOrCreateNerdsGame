@@ -9,7 +9,7 @@ var complete = 0
 
 func _physics_process(delta):
 	wait = wait + 1
-	if wait > 100:
+	if wait > 200:
 		if killCount == killNeed && animalCount == animalNeed:
 			killCount = 0
 			animalCount = 0

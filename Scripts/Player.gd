@@ -26,6 +26,7 @@ var animalScore = 0
 var flash = 0
 var flashGo = 0
 var randomDamage = 0
+
 onready var waterAnim = $WaterDropAnim
 onready var playerAnim = $AnimationPlayer
 onready var charColor = $CharSprite
@@ -124,7 +125,7 @@ func _physics_process(delta):
 		
 #Health
 	if healthCount < 0:
-		queue_free()
+		get_tree().reload_current_scene()
 		
 		
 		
@@ -149,10 +150,6 @@ func _on_Area2D_body_entered(body):
 	if "FireThing" in body.name:
 		healthCount = healthCount-10
 		hit_knockback()
-	if "Rabbit" in body.name:
-		animalScore = animalScore + 1
-		scoreTracker.animalCount = scoreTracker.animalCount + 1
-		print(animalScore)
 
 func hit_knockback():
 	motion.x = -ENEMYKICKBACK * facingDir

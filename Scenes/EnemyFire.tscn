@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Sprites/fire.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=2]
@@ -11,7 +11,7 @@ extents = Vector2( 32, 24 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 32, 32 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "100%"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite/Health For Enemies:frame")
@@ -26,7 +26,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 resource_name = "20%"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite/Health For Enemies:frame")
@@ -41,7 +41,7 @@ tracks/0/keys = {
 "values": [ 4 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=5]
 resource_name = "40%"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite/Health For Enemies:frame")
@@ -56,7 +56,7 @@ tracks/0/keys = {
 "values": [ 3 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=6]
 resource_name = "60%"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite/Health For Enemies:frame")
@@ -71,7 +71,7 @@ tracks/0/keys = {
 "values": [ 2 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=7]
 resource_name = "80%"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite/Health For Enemies:frame")
@@ -86,7 +86,98 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=8]
+length = 2.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 2, 1, 0 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "100%"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite/Health For Enemies:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "20%"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite/Health For Enemies:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "40%"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite/Health For Enemies:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "60%"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite/Health For Enemies:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "80%"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite/Health For Enemies:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=14]
 resource_name = "Fire Animation"
 length = 2.1
 loop = true
@@ -103,7 +194,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 2, 1, 0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=15]
 
 [node name="EnemyFire" type="KinematicBody2D"]
 scale = Vector2( 0.5, 0.5 )
@@ -131,17 +222,25 @@ visible = false
 shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/100% = SubResource( 5 )
-anims/20% = SubResource( 6 )
-anims/40% = SubResource( 7 )
-anims/60% = SubResource( 8 )
-anims/80% = SubResource( 9 )
-"anims/Fire Animation" = SubResource( 3 )
+anims/100% = SubResource( 3 )
+anims/20% = SubResource( 4 )
+anims/40% = SubResource( 5 )
+anims/60% = SubResource( 6 )
+anims/80% = SubResource( 7 )
+"anims/Fire Animation" = SubResource( 8 )
+
+[node name="FIREMOVE" type="AnimationPlayer" parent="."]
+anims/100% = SubResource( 9 )
+anims/20% = SubResource( 10 )
+anims/40% = SubResource( 11 )
+anims/60% = SubResource( 12 )
+anims/80% = SubResource( 13 )
+"anims/Fire Animation" = SubResource( 14 )
 
 [node name="Aim" type="KinematicBody2D" parent="."]
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Aim"]
-shape = SubResource( 4 )
+shape = SubResource( 15 )
 disabled = true
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

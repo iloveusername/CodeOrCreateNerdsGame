@@ -16,10 +16,11 @@ var flash = 0
 var flashGo = 0
 onready var spriteColor = $Sprite
 onready var fireAnim = $AnimationPlayer
+onready var jigglyFire = $FIREMOVE
 
 
 func _physics_process(delta):
-	fireAnim.play("Fire Animation")
+	jigglyFire.play("Fire Animation")
 	var Player = get_parent().get_node("Player")
 	var scoreTracker = get_parent().get_node("ScoreTracker")
 	
@@ -46,6 +47,7 @@ func _physics_process(delta):
 		fireAnim.play("40%")
 	elif health > HEALTH*0:
 		fireAnim.play("20%")
+		
 
 #Gravity
 	motion.y += GRAVITY * delta

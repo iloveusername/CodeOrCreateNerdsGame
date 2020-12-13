@@ -12,6 +12,7 @@ onready var sprite= $Sprite
 var x = 0
 var death = 0
 var die = 0
+var doThings = 1
 func _physics_process(delta):
 	if death == 1:
 		die = die + 1
@@ -36,6 +37,8 @@ func _physics_process(delta):
 
 func _on_Area2D_body_entered(body):
 	if "Player" in body.name:
+		var scoreTracker = get_parent().get_node("ScoreTracker")
+		scoreTracker.animalCount = scoreTracker.animalCount + 1
 		death = 1
 
 func _ready():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Textures/MiddleGround.png" type="Texture" id=1]
 [ext_resource path="res://Textures/Grass.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Scenes/ScoreTracker.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Rabbit.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripts/LevelOne.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Squirrel.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Baby_Deer.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -166,10 +168,16 @@ margin_left = 544.0
 margin_top = 112.0
 margin_right = 672.0
 margin_bottom = 176.0
-text = "Walk over the animal to pick it up!"
+text = "Walk over the animals to pick them up!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Rabbit" parent="." instance=ExtResource( 8 )]
 position = Vector2( 568, 152 )
+
+[node name="Rabbit2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 632, 160 )
+
+[node name="Baby Deer" parent="." instance=ExtResource( 11 )]
+position = Vector2( 608, 120 )
