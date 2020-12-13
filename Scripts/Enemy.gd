@@ -5,12 +5,14 @@ const MAX_SPEED = 64
 const FRICTION = 0.25
 const GRAVITY = 200
 const JUMP_FORCE = 128
-const HEALTH = 20
 
 var motion = Vector2()
 var launchVal = -100
-var health = 20
+var health = 12
 var x = 0
+var colorThingy = 1
+var flash = 0
+var flashGo = 0
 onready var spriteColor = $Sprite
 onready var fireAnim = $AnimationPlayer
 
@@ -18,8 +20,15 @@ func _physics_process(delta):
 	fireAnim.play("Fire Animation")
 	var Player = get_parent().get_node("Player")
 	
+	
 #Sprite Color Stuff
-#	spriteColor.self_modulate = Color(health/12, health/12, health/12)
+	if flashGo == 1:
+		spriteColor.self_modulate = Color(100, 100, 100)
+		flash = flash + 1
+	if flash > 12:
+		spriteColor.self_modulate = Color(1, 1, 1)
+		flashGo = 0
+		flash = 0
 	
 #Gravity
 	motion.y += GRAVITY * delta
@@ -34,7 +43,6 @@ func _physics_process(delta):
 		x=0
 		
 	motion.x = lerp(motion.x, 0, FRICTION)
-	print(health/12)
 	motion = move_and_slide(motion, Vector2.UP)
 	
 #Death
@@ -48,5 +56,6 @@ func _on_Area2D_body_entered(body):
 		var facingDir = get_parent().get_node("Player").facingDir
 		motion.x = launchVal*-facingDir*3
 		motion.y = launchVal*1.25
+		flashGo = 1
 		health = health - 4
 
