@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Textures/MiddleGround.png" type="Texture" id=1]
 [ext_resource path="res://Textures/Grass.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Textures/Grass_Right.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/ScoreTracker.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/EnemyFire.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Burning Tree.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -144,3 +145,14 @@ position = Vector2( 664, 112 )
 
 [node name="EnemyFire" parent="." instance=ExtResource( 8 )]
 position = Vector2( 472, 88 )
+
+[node name="Burning Tree" parent="." instance=ExtResource( 9 )]
+
+[node name="Burning Tree2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 464, 224 )
+
+[node name="Burning Tree3" parent="." instance=ExtResource( 9 )]
+position = Vector2( -136, 224 )
+
+[node name="Burning Tree4" parent="." instance=ExtResource( 9 )]
+position = Vector2( -16, 160 )

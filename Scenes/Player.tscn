@@ -158,7 +158,6 @@ anims/80 = ExtResource( 8 )
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2( -3.1748, 1.5874 )
 motion_scale = Vector2( 0.5, 0.5 )
 motion_offset = Vector2( 0, -250 )
 motion_mirroring = Vector2( 512, 0 )
