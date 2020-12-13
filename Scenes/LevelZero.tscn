@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Textures/MiddleGround.png" type="Texture" id=1]
 [ext_resource path="res://Textures/Grass.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Scenes/ScoreTracker.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Sprites/White Square.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/Start.gd" type="Script" id=9]
+[ext_resource path="res://New Piskel (1).png" type="Texture" id=10]
+[ext_resource path="res://Scripts/New Piskel (1).gd" type="Script" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -125,6 +127,22 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 24, 15.8337 )
 
+[sub_resource type="Animation" id=7]
+resource_name = "LOGO"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
 [node name="LevelTemplate" type="Node2D"]
 
 [node name="TileMap2" type="TileMap" parent="."]
@@ -151,4 +169,15 @@ script = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D"]
 shape = SubResource( 6 )
+
+[node name="New Piskel (1)" type="Sprite" parent="."]
+position = Vector2( 408, 104 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+vframes = 2
+frame = 1
+script = ExtResource( 11 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="New Piskel (1)"]
+anims/LOGO = SubResource( 7 )
 [connection signal="body_entered" from="Sprite/Area2D" to="Sprite" method="_on_Area2D_body_entered"]
