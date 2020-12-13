@@ -25,11 +25,14 @@ var POS = get_global_transform()
 var animalScore = 0
 var flash = 0
 var flashGo = 0
+var randomDamage = 0
 onready var waterAnim = $WaterDropAnim
 onready var playerAnim = $AnimationPlayer
 onready var charColor = $CharSprite
 
+
 func _physics_process(delta):
+	var scoreTracker = get_parent().get_node("ScoreTracker")
 
 #Direction
 	var xDir = (Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"))
@@ -98,6 +101,8 @@ func _physics_process(delta):
 		waterAnim.play("80")
 		
 #Random Number Test
+
+	randomDamage = randi() % 6 + 3
 	if Input.is_action_just_pressed("ui_up"):
 		var ranDom = randi() % 20
 		print(ranDom)
@@ -137,6 +142,7 @@ func shoot():
 	get_tree().get_root().call_deferred("add_child",bulletInstance)
 	
 func _on_Area2D_body_entered(body):
+	var scoreTracker = get_parent().get_node("ScoreTracker")
 	if "EnemyFire" in body.name:
 		healthCount = healthCount-10
 		hit_knockback()
@@ -145,6 +151,7 @@ func _on_Area2D_body_entered(body):
 		hit_knockback()
 	if "Rabbit" in body.name:
 		animalScore = animalScore + 1
+		scoreTracker.animalCount = scoreTracker.animalCount + 1
 		print(animalScore)
 
 func hit_knockback():

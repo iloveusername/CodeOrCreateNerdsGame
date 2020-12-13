@@ -17,9 +17,12 @@ var flashGo = 0
 onready var spriteColor = $Sprite
 onready var fireAnim = $AnimationPlayer
 
+
 func _physics_process(delta):
 	fireAnim.play("Fire Animation")
 	var Player = get_parent().get_node("Player")
+	var scoreTracker = get_parent().get_node("ScoreTracker")
+	
 	
 	
 #Sprite Color Stuff
@@ -61,15 +64,17 @@ func _physics_process(delta):
 	
 #Death
 	if health < 0:
+		scoreTracker.killCount = scoreTracker.killCount + 1
 		queue_free()
 	
 
 
 func _on_Area2D_body_entered(body):
 	if "Bullet" in body.name:
+		var Player = get_parent().get_node("Player")
 		var facingDir = get_parent().get_node("Player").facingDir
 		motion.x = launchVal*-facingDir*3
 		motion.y = launchVal*1.25
 		flashGo = 1
-		health = health - 4
+		health = health - Player.randomDamage
 
