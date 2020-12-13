@@ -76,5 +76,6 @@ LMB={
 [rendering]
 
 quality/driver/driver_name="GLES2"
+quality/2d/use_pixel_snap=true
 environment/default_clear_color=Color( 0, 1, 0.976471, 1 )
 environment/default_environment="res://default_env.tres"

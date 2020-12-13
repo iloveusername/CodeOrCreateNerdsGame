@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pine tree.png-345377a4e0c715eb665fbd00e39d4a82.stex"
+path="res://.import/TreeTestParallax.png-ce64b36654457714d0154d4386d1ae35.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/pine tree.png"
-dest_files=[ "res://.import/pine tree.png-345377a4e0c715eb665fbd00e39d4a82.stex" ]
+source_file="res://Sprites/TreeTestParallax.png"
+dest_files=[ "res://.import/TreeTestParallax.png-ce64b36654457714d0154d4386d1ae35.stex" ]
 
 [params]
 
