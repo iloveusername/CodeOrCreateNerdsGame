@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Textures/MiddleGround.png" type="Texture" id=1]
 [ext_resource path="res://Textures/Grass.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scenes/EnemyFire.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Bird.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Rabbit.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scripts/LevelFour.gd" type="Script" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -123,7 +124,8 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 } ]
 4/z_index = 0
 
-[node name="LevelTemplate" type="Node2D"]
+[node name="LevelFour" type="Node2D"]
+script = ExtResource( 11 )
 
 [node name="Rabbit3" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1120, 16 )
