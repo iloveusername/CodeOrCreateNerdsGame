@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Textures/MiddleGround.png" type="Texture" id=1]
 [ext_resource path="res://Textures/Grass.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Scenes/ScoreTracker.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/EnemyFire.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/LevelTwo.gd" type="Script" id=9]
+[ext_resource path="res://Sprites/5.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/4.png" type="Texture" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -138,27 +140,15 @@ position = Vector2( 96, 136 )
 
 [node name="ScoreTracker" parent="." instance=ExtResource( 7 )]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 40.0
-margin_top = 88.0
-margin_right = 184.0
-margin_bottom = 176.0
-text = "Press either Spacebar or X to Jump! Hold LMB or Z to charge up your water blast!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="."]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 192.0
-margin_top = 24.0
-margin_right = 288.0
-margin_bottom = 64.0
-text = "Defeat the fire to continue!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="EnemyFire" parent="." instance=ExtResource( 8 )]
 position = Vector2( 360, 24 )
+
+[node name="5" type="Sprite" parent="."]
+position = Vector2( 200, 16 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )
+
+[node name="4" type="Sprite" parent="."]
+position = Vector2( 96, 120 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 11 )
