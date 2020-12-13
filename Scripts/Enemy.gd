@@ -5,6 +5,7 @@ const MAX_SPEED = 64
 const FRICTION = 0.25
 const GRAVITY = 200
 const JUMP_FORCE = 128
+const HEALTH = 12
 
 var motion = Vector2()
 var launchVal = -100
@@ -29,7 +30,20 @@ func _physics_process(delta):
 		spriteColor.self_modulate = Color(1, 1, 1)
 		flashGo = 0
 		flash = 0
-	
+		
+
+#Health Sprite
+	if health > HEALTH*0.8:
+		fireAnim.play("100%")
+	elif health > HEALTH*0.6:
+		fireAnim.play("80%")
+	elif health > HEALTH*0.4:
+		fireAnim.play("60%")
+	elif health > HEALTH*0.2:
+		fireAnim.play("40%")
+	elif health > HEALTH*0:
+		fireAnim.play("20%")
+
 #Gravity
 	motion.y += GRAVITY * delta
 	if x < 50 :
